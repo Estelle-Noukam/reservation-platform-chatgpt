@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservation Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+
+    <a href="/">Accueil</a>
+    <a href="/resources">Ressources</a>
+
+    {% if user %}
+        <a href="/profile">Profil</a>
+        <a href="/reservations">Mes réservations</a>
+        <a href="/logout">Déconnexion</a>
+
+        {% if user.role == 'admin' %}
+            <a href="/admin/resources">Admin Ressources</a>
+            <a href="/admin/reservations">Admin Réservations</a>
+        {% endif %}
+
+    {% else %}
+        <a href="/login">Connexion</a>
+        <a href="/register">Inscription</a>
+    {% endif %}
+
+</nav>
+
+<hr>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

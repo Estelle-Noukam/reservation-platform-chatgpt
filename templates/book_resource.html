@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Réserver une ressource</h2>
+
+<p>Ressource : {{ resource.name }}</p>
+
+<form method="POST">
+
+    <input type="datetime-local" name="reservation_date" required><br>
+
+    <button type="submit">Réserver</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Créer une ressource</h2>
+
+<form method="POST">
+
+    <input type="text" name="name" placeholder="Nom ressource" required><br>
+
+    <textarea name="description" placeholder="Description"></textarea><br>
+
+    <button type="submit">Créer</button>
+
+</form>
+
+{% endblock %}
